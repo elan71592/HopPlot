@@ -5,11 +5,8 @@ class GoogleAPI
 
   def initialize
     keys = YAML.load_file('app/models/application.yml')
-    #API_KEY = keys['API_KEY']
-    @client = GooglePlaces::Client.new do |config|
-      config.api_key = keys['API_KEY']
+    @client = GooglePlaces::Client.new(keys['API_KEY'])
 
-    end
   end
 
   def find_first_spot(type)
